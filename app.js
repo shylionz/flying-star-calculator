@@ -10,6 +10,17 @@ const PERIOD_LABELS = {
   9: "Period 9 (2024–2043)",
 };
 
+const ALL_FACINGS = [
+  "N1", "N2", "N3",
+  "NE1", "NE2", "NE3",
+  "E1", "E2", "E3",
+  "SE1", "SE2", "SE3",
+  "S1", "S2", "S3",
+  "SW1", "SW2", "SW3",
+  "W1", "W2", "W3",
+  "NW1", "NW2", "NW3",
+];
+
 const FACING_LABELS = {
   N1: "N1 Ren (337.6°–352.5°)",
   N2: "N2 Zi (352.6°–7.5°)",
@@ -20,7 +31,6 @@ const FACING_LABELS = {
   E1: "E1 Jia (67.6°–82.5°)",
   E2: "E2 Mao (82.6°–97.5°)",
   E3: "E3 Yi (97.6°–112.5°)",
-  SE: "SE — legacy validated case",
   SE1: "SE1 Chen (112.6°–127.5°)",
   SE2: "SE2 Xun (127.6°–142.5°)",
   SE3: "SE3 Si (142.6°–157.5°)",
@@ -36,6 +46,7 @@ const FACING_LABELS = {
   NW1: "NW1 Xu (292.6°–307.5°)",
   NW2: "NW2 Qian (307.6°–322.5°)",
   NW3: "NW3 Hai (322.6°–337.5°)",
+  SE: "SE — legacy validated case",
 };
 
 const DISPLAY_POSITIONS = [
@@ -73,6 +84,7 @@ const orientationLabel = document.getElementById("orientationLabel");
 const shiftLabel = document.getElementById("shiftLabel");
 const chartGrid = document.getElementById("chartGrid");
 const traceOutput = document.getElementById("traceOutput");
+const availabilityMessage = document.getElementById("availabilityMessage");
 const generateBtn = document.getElementById("generateBtn");
 const shiftCwBtn = document.getElementById("shiftCwBtn");
 const shiftCcwBtn = document.getElementById("shiftCcwBtn");
@@ -148,39 +160,50 @@ function populateSelectors() {
 
 function populateFacingOptions() {
   const period = Number(periodSelect.value);
-  const facings = Object.values(charts)
-    .filter((chart) => chart.period === period)
-    .map((chart) => chart.facing)
-    .sort((a, b) => (FACING_LABELS[a] || a).localeCompare(FACING_LABELS[b] || b));
-
-  if (facings.length === 0) {
-    facingSelect.innerHTML = `<option value="">No validated UI cases yet</option>`;
-    facingSelect.disabled = true;
-    generateBtn.disabled = true;
-    return;
-  }
+  const availableFacings = new Set(
+    Object.values(charts)
+      .filter((chart) => chart.period === period)
+      .map((chart) => chart.facing)
+  );
+  const legacyFacings = [...availableFacings].filter((facing) => !ALL_FACINGS.includes(facing));
+  const facings = [...ALL_FACINGS, ...legacyFacings];
 
   facingSelect.disabled = false;
   generateBtn.disabled = false;
   facingSelect.innerHTML = facings
-    .map((facing) => `<option value="${facing}">${FACING_LABELS[facing] || facing}</option>`)
+    .map((facing) => {
+      const status = availableFacings.has(facing) ? "" : " — pending validation";
+      return `<option value="${facing}">${FACING_LABELS[facing] || facing}${status}</option>`;
+    })
     .join("");
 }
 
-function generateChart() {
+function generateChart({ resetShift = false } = {}) {
   const key = chartKey(Number(periodSelect.value), facingSelect.value);
   currentChart = charts[key] || null;
-  ringShift = Number(initialParams.get("shift") || 0);
+  if (resetShift) {
+    ringShift = 0;
+  } else if (initialParams.has("shift")) {
+    ringShift = Number(initialParams.get("shift") || 0);
+  }
   redraw();
 }
 
 function redraw() {
   if (!currentChart) {
-    selectedLabel.textContent = "No validated chart selected";
-    chartGrid.innerHTML = "";
-    traceOutput.textContent = "Select a validated period/facing combination.";
+    const period = Number(periodSelect.value);
+    const facing = facingSelect.value;
+    const facingLabel = FACING_LABELS[facing] || facing;
+    selectedLabel.textContent = `${PERIOD_LABELS[period]} / ${facingLabel}`;
+    orientationLabel.textContent = ORIENTATION_LABELS[orientationSelect.value];
+    shiftLabel.textContent = String(normalizeShift(ringShift));
+    availabilityMessage.textContent = "Chart not yet available in validation dataset";
+    chartGrid.innerHTML = `<div class="empty-state">Chart not yet available in validation dataset</div>`;
+    traceOutput.textContent = `No validated chart for P${period} / ${facing}.`;
     return;
   }
+
+  availabilityMessage.textContent = "";
 
   const orientation = orientationSelect.value;
   const grid = buildDisplayGrid(currentChart, ringShift, orientation);
@@ -193,11 +216,15 @@ function redraw() {
 
   chartGrid.innerHTML = grid.flat().map((cell) => `
     <article class="cell ${cell.display_palace === "C" ? "center" : ""}">
-      <div class="position">${cell.display_position}</div>
-      <div class="palace">${cell.display_palace}</div>
-      <div class="canonical">canonical: ${cell.canonical_palace}</div>
-      <div class="stars">${cell.mountain} ${cell.water} ${cell.base}</div>
-      <div class="legend">mountain · water · base</div>
+      <div class="palace">${cell.canonical_palace}</div>
+      <div class="display-note">display position: ${cell.display_palace}</div>
+      <div class="mw-pair">
+        <span>${cell.mountain}</span>
+        <span>${cell.water}</span>
+      </div>
+      <div class="mw-label">mountain · water</div>
+      <div class="base-star">${cell.base}</div>
+      <div class="base-label">base</div>
     </article>
   `).join("");
 
@@ -208,14 +235,13 @@ function redraw() {
 
 periodSelect.addEventListener("change", () => {
   populateFacingOptions();
-  if (!facingSelect.disabled) generateChart();
-  else redraw();
+  generateChart({ resetShift: true });
 });
-facingSelect.addEventListener("change", generateChart);
+facingSelect.addEventListener("change", () => generateChart({ resetShift: true }));
 orientationSelect.addEventListener("change", redraw);
 generateBtn.addEventListener("click", () => {
   initialParams.delete("shift");
-  generateChart();
+  generateChart({ resetShift: true });
 });
 shiftCwBtn.addEventListener("click", () => {
   if (!currentChart) generateChart();
@@ -240,6 +266,11 @@ fetch("data/charts.json")
     const requestedOrientation = initialParams.get("orientation");
     if (requestedOrientation && ORIENTATION_ROWS[requestedOrientation]) orientationSelect.value = requestedOrientation;
     generateChart();
+    initialParams.delete("shift");
+    if (initialParams.get("showFacingList") === "1") {
+      facingSelect.size = Math.min(24, facingSelect.options.length);
+      facingSelect.classList.add("expanded-facing-list");
+    }
   })
   .catch((error) => {
     traceOutput.textContent = `Failed to load chart data: ${error}`;
