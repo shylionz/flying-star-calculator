@@ -3,43 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Flying Star Ring-Shift Overlay</title>
+  <title>Flying Star Calculator</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="app">
     <header>
-      <p class="eyebrow">Local prototype</p>
-      <h1>Flying Star Ring-Shift Overlay</h1>
-      <p class="subtitle">Canonical natal chart stays fixed. The ring shift only remaps visual display positions.</p>
+      <p class="eyebrow">Flying Star Calculator</p>
+      <h1>Natal Chart Overlay</h1>
+      <p class="subtitle">Calculation data stays canonical. Orientation changes the camera view; ring shift moves only the outer display palaces around the fixed center.</p>
     </header>
 
-    <section class="controls" aria-label="Chart controls">
-      <label>
-        Period
-        <select id="periodSelect"></select>
-      </label>
-      <label>
-        Facing
-        <select id="facingSelect"></select>
-      </label>
-      <button id="generateBtn" type="button">Generate Chart</button>
-      <button id="shiftCwBtn" type="button">Shift Clockwise</button>
-      <button id="shiftCcwBtn" type="button">Shift Counter-Clockwise</button>
-      <button id="resetBtn" type="button">Reset Shift</button>
+    <section class="panel chart-identity" aria-label="Chart identity controls">
+      <div class="section-label">A. Chart identity</div>
+      <div class="control-grid identity-grid">
+        <label>
+          Period
+          <select id="periodSelect"></select>
+        </label>
+        <label>
+          Facing
+          <select id="facingSelect"></select>
+        </label>
+        <label>
+          Orientation
+          <select id="orientationSelect">
+            <option value="north">North on Top</option>
+            <option value="south">South on Top</option>
+            <option value="east">East on Top</option>
+            <option value="west">West on Top</option>
+          </select>
+        </label>
+        <button id="generateBtn" class="primary" type="button">Generate Chart</button>
+      </div>
+    </section>
+
+    <section class="panel overlay-controls" aria-label="Overlay manipulation controls">
+      <div class="section-label">B. Overlay manipulation</div>
+      <div class="control-grid overlay-grid">
+        <button id="shiftCcwBtn" type="button">Shift Counter-Clockwise</button>
+        <button id="shiftCwBtn" type="button">Shift Clockwise</button>
+        <button id="resetBtn" type="button">Reset Shift</button>
+      </div>
     </section>
 
     <section class="status" aria-live="polite">
-      <div><strong>Selected:</strong> <span id="selectedLabel">—</span></div>
+      <div><strong>Chart:</strong> <span id="selectedLabel">—</span></div>
+      <div><strong>Orientation:</strong> <span id="orientationLabel">North on Top</span></div>
       <div><strong>Ring shift:</strong> <span id="shiftLabel">0</span> / 7</div>
     </section>
 
-    <section id="chartGrid" class="chart-grid" aria-label="3 by 3 chart grid"></section>
-
-    <section class="trace">
-      <h2>Position trace</h2>
-      <pre id="traceOutput">Generate a chart to see palace remapping.</pre>
+    <section class="chart-section" aria-label="Chart display">
+      <div class="section-label">C. Chart display</div>
+      <section id="chartGrid" class="chart-grid" aria-label="3 by 3 chart grid"></section>
     </section>
+
+    <details class="trace">
+      <summary>Trace / debug display</summary>
+      <pre id="traceOutput">Generate a chart to see palace remapping.</pre>
+    </details>
   </main>
 
   <script src="app.js"></script>
