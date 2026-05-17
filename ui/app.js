@@ -85,6 +85,7 @@ const shiftLabel = document.getElementById("shiftLabel");
 const chartGrid = document.getElementById("chartGrid");
 const traceOutput = document.getElementById("traceOutput");
 const availabilityMessage = document.getElementById("availabilityMessage");
+const caseStatus = document.getElementById("caseStatus");
 const generateBtn = document.getElementById("generateBtn");
 const shiftCwBtn = document.getElementById("shiftCwBtn");
 const shiftCcwBtn = document.getElementById("shiftCcwBtn");
@@ -104,6 +105,11 @@ function decrementRingShift(currentSteps) {
 
 function chartKey(period, facing) {
   return `${period}|${facing}`;
+}
+
+function setCaseStatus(available) {
+  caseStatus.textContent = available ? "Available" : "Pending validation";
+  caseStatus.className = `case-status ${available ? "available" : "pending"}`;
 }
 
 function orientationIndex(orientation) {
@@ -172,38 +178,53 @@ function populateFacingOptions() {
   generateBtn.disabled = false;
   facingSelect.innerHTML = facings
     .map((facing) => {
-      const status = availableFacings.has(facing) ? "" : " — pending validation";
+      const status = availableFacings.has(facing) ? " — Available" : " — Pending validation";
       return `<option value="${facing}">${FACING_LABELS[facing] || facing}${status}</option>`;
     })
     .join("");
 }
 
 function generateChart({ resetShift = false } = {}) {
-  const key = chartKey(Number(periodSelect.value), facingSelect.value);
+  const period = Number(periodSelect.value);
+  const facing = facingSelect.value;
+  const key = chartKey(period, facing);
   currentChart = charts[key] || null;
   if (resetShift) {
     ringShift = 0;
   } else if (initialParams.has("shift")) {
     ringShift = Number(initialParams.get("shift") || 0);
   }
+  redrawUnavailableOrChart(period, facing);
+}
+
+function redrawUnavailableOrChart(period, facing) {
+  if (!currentChart) {
+    renderUnavailable(period, facing);
+    return;
+  }
   redraw();
+}
+
+function renderUnavailable(period, facing) {
+  const facingLabel = FACING_LABELS[facing] || facing;
+  const normalized = normalizeShift(ringShift);
+  selectedLabel.textContent = `${PERIOD_LABELS[period]} / ${facingLabel}`;
+  orientationLabel.textContent = ORIENTATION_LABELS[orientationSelect.value];
+  shiftLabel.textContent = String(normalized);
+  setCaseStatus(false);
+  availabilityMessage.textContent = `Chart not yet available for Period ${period} / ${facing}. Please select a validated case.`;
+  chartGrid.innerHTML = `<div class="empty-state">Chart not yet available for Period ${period} / ${facing}.<br><span>Please select a validated case.</span></div>`;
+  traceOutput.textContent = `No validated chart for Period ${period} / ${facing}.`;
 }
 
 function redraw() {
   if (!currentChart) {
-    const period = Number(periodSelect.value);
-    const facing = facingSelect.value;
-    const facingLabel = FACING_LABELS[facing] || facing;
-    selectedLabel.textContent = `${PERIOD_LABELS[period]} / ${facingLabel}`;
-    orientationLabel.textContent = ORIENTATION_LABELS[orientationSelect.value];
-    shiftLabel.textContent = String(normalizeShift(ringShift));
-    availabilityMessage.textContent = "Chart not yet available in validation dataset";
-    chartGrid.innerHTML = `<div class="empty-state">Chart not yet available in validation dataset</div>`;
-    traceOutput.textContent = `No validated chart for P${period} / ${facing}.`;
+    renderUnavailable(Number(periodSelect.value), facingSelect.value);
     return;
   }
 
   availabilityMessage.textContent = "";
+  setCaseStatus(true);
 
   const orientation = orientationSelect.value;
   const grid = buildDisplayGrid(currentChart, ringShift, orientation);
