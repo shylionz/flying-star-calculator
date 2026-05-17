@@ -112,6 +112,31 @@ function setCaseStatus(available) {
   caseStatus.className = `case-status ${available ? "available" : "pending"}`;
 }
 
+function getSelectedPeriod() {
+  return Number(periodSelect.value);
+}
+
+function getSelectedFacing() {
+  const option = facingSelect.options[facingSelect.selectedIndex];
+  return option?.dataset?.facing || option?.value || facingSelect.value;
+}
+
+function getSelectedFacingLabel() {
+  const option = facingSelect.options[facingSelect.selectedIndex];
+  return option?.textContent || FACING_LABELS[getSelectedFacing()] || getSelectedFacing();
+}
+
+function selectedDebug(period, facing) {
+  const lookupKey = chartKey(period, facing);
+  return {
+    selectedPeriod: period,
+    selectedFacing: facing,
+    selectedOptionLabel: getSelectedFacingLabel(),
+    lookupKey,
+    availability: Boolean(charts[lookupKey]) ? "Available" : "Pending validation",
+  };
+}
+
 function orientationIndex(orientation) {
   const rows = ORIENTATION_ROWS[orientation];
   return Object.fromEntries(rows.flatMap((row, r) => row.map((palace, c) => [palace, [r, c]])));
@@ -179,14 +204,14 @@ function populateFacingOptions() {
   facingSelect.innerHTML = facings
     .map((facing) => {
       const status = availableFacings.has(facing) ? " — Available" : " — Pending validation";
-      return `<option value="${facing}">${FACING_LABELS[facing] || facing}${status}</option>`;
+      return `<option value="${facing}" data-facing="${facing}">${FACING_LABELS[facing] || facing}${status}</option>`;
     })
     .join("");
 }
 
 function generateChart({ resetShift = false } = {}) {
-  const period = Number(periodSelect.value);
-  const facing = facingSelect.value;
+  const period = getSelectedPeriod();
+  const facing = getSelectedFacing();
   const key = chartKey(period, facing);
   currentChart = charts[key] || null;
   if (resetShift) {
@@ -214,12 +239,12 @@ function renderUnavailable(period, facing) {
   setCaseStatus(false);
   availabilityMessage.textContent = `Chart not yet available for Period ${period} / ${facing}. Please select a validated case.`;
   chartGrid.innerHTML = `<div class="empty-state">Chart not yet available for Period ${period} / ${facing}.<br><span>Please select a validated case.</span></div>`;
-  traceOutput.textContent = `No validated chart for Period ${period} / ${facing}.`;
+  traceOutput.textContent = `${JSON.stringify(selectedDebug(period, facing), null, 2)}\n\nNo validated chart for Period ${period} / ${facing}.`;
 }
 
 function redraw() {
   if (!currentChart) {
-    renderUnavailable(Number(periodSelect.value), facingSelect.value);
+    renderUnavailable(getSelectedPeriod(), getSelectedFacing());
     return;
   }
 
@@ -249,7 +274,8 @@ function redraw() {
     </article>
   `).join("");
 
-  traceOutput.textContent = grid.flat()
+  const debug = JSON.stringify(selectedDebug(currentChart.period, currentChart.facing), null, 2);
+  traceOutput.textContent = debug + "\n\n" + grid.flat()
     .map((cell) => `[${cell.canonical_palace}→${cell.display_palace}] screen=${cell.display_position} orientation=${ORIENTATION_LABELS[orientation]} ring_shift=${ringShift} normalized=${normalized}`)
     .join("\n");
 }
@@ -258,6 +284,7 @@ periodSelect.addEventListener("change", () => {
   populateFacingOptions();
   generateChart({ resetShift: true });
 });
+facingSelect.addEventListener("input", () => generateChart({ resetShift: true }));
 facingSelect.addEventListener("change", () => generateChart({ resetShift: true }));
 orientationSelect.addEventListener("change", redraw);
 generateBtn.addEventListener("click", () => {
