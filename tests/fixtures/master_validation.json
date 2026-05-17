@@ -1,0 +1,138 @@
+{
+  "description": "Master validation fixtures for Flying Star Calculator - Phase 1",
+  "version": "1.0",
+  "total_cases": 6,
+  "test_cases": [
+    {
+      "id": "VC001",
+      "period": 9,
+      "facing": "SE",
+      "source": "WOFS Flying Star Calculator",
+      "source_url": "https://www.wofs.com/flying-star-calculator/",
+      "validated": true,
+      "validated_date": "2026-05-17",
+      "grid": {
+        "SE": {"mountain": 1, "water": 1, "base": 8},
+        "S": {"mountain": 5, "water": 5, "base": 4},
+        "SW": {"mountain": 3, "water": 3, "base": 6},
+        "E": {"mountain": 2, "water": 2, "base": 7},
+        "C": {"mountain": 9, "water": 9, "base": 9},
+        "W": {"mountain": 7, "water": 7, "base": 2},
+        "NE": {"mountain": 6, "water": 6, "base": 3},
+        "N": {"mountain": 4, "water": 4, "base": 5},
+        "NW": {"mountain": 8, "water": 8, "base": 1}
+      },
+      "ascii_display": "SE [1 1 8] S [5 5 4] SW [3 3 6]\nE [2 2 7] C [9 9 9] W [7 7 2]\nNE [6 6 3] N [4 4 5] NW [8 8 1]"
+    },
+    {
+      "id": "VC002",
+      "period": 8,
+      "facing": "N1",
+      "source": "Wikibooks - Feng Shui Flying Star Feng Shui/Period 8",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_8",
+      "validated": true,
+      "validated_date": "2026-05-17",
+      "notes": "Mountain=S1, Facing=N1 from source",
+      "grid": {
+        "SE": {"mountain": 5, "water": 7, "base": 2},
+        "S": {"mountain": 9, "water": 3, "base": 7},
+        "SW": {"mountain": 7, "water": 5, "base": 9},
+        "E": {"mountain": 6, "water": 6, "base": 1},
+        "C": {"mountain": 4, "water": 8, "base": 3},
+        "W": {"mountain": 2, "water": 1, "base": 5},
+        "NE": {"mountain": 1, "water": 2, "base": 6},
+        "N": {"mountain": 8, "water": 4, "base": 8},
+        "NW": {"mountain": 3, "water": 9, "base": 4}
+      },
+      "ascii_display": "SE [5 7 2] S [9 3 7] SW [7 5 9]\nE [6 6 1] C [4 8 3] W [2 1 5]\nNE [1 2 6] N [8 4 8] NW [3 9 4]"
+    },
+    {
+      "id": "VC003",
+      "period": 8,
+      "facing": "SW2",
+      "source": "Wikibooks - Feng Shui Flying Star Feng Shui/Period 8",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_8",
+      "validated": true,
+      "validated_date": "2026-05-17",
+      "notes": "Mountain=NE2, Facing=SW2 from source",
+      "grid": {
+        "SE": {"mountain": 1, "water": 7, "base": 4},
+        "S": {"mountain": 6, "water": 3, "base": 9},
+        "SW": {"mountain": 8, "water": 5, "base": 2},
+        "E": {"mountain": 9, "water": 6, "base": 3},
+        "C": {"mountain": 2, "water": 8, "base": 5},
+        "W": {"mountain": 4, "water": 1, "base": 7},
+        "NE": {"mountain": 5, "water": 2, "base": 8},
+        "N": {"mountain": 7, "water": 4, "base": 1},
+        "NW": {"mountain": 3, "water": 9, "base": 6}
+      },
+      "ascii_display": "SE [1 7 4] S [6 3 9] SW [8 5 2]\nE [9 6 3] C [2 8 5] W [4 1 7]\nNE [5 2 8] N [7 4 1] NW [3 9 6]"
+    },
+    {
+      "id": "VC004",
+      "period": 9,
+      "facing": "E1",
+      "source": "Wikibooks - Feng Shui Flying Star Feng Shui/Period 9",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_9",
+      "validated": true,
+      "validated_date": "2026-05-17",
+      "notes": "Mountain=W1, Facing=E1 from source",
+      "grid": {
+        "SE": {"mountain": 3, "water": 8, "base": 6},
+        "S": {"mountain": 7, "water": 4, "base": 2},
+        "SW": {"mountain": 5, "water": 6, "base": 4},
+        "E": {"mountain": 4, "water": 7, "base": 5},
+        "C": {"mountain": 2, "water": 9, "base": 7},
+        "W": {"mountain": 9, "water": 2, "base": 9},
+        "NE": {"mountain": 8, "water": 3, "base": 1},
+        "N": {"mountain": 6, "water": 5, "base": 3},
+        "NW": {"mountain": 1, "water": 1, "base": 8}
+      },
+      "ascii_display": "SE [3 8 6] S [7 4 2] SW [5 6 4]\nE [4 7 5] C [2 9 7] W [9 2 9]\nNE [8 3 1] N [6 5 3] NW [1 1 8]"
+    },
+    {
+      "id": "VC005",
+      "period": 7,
+      "facing": "W2",
+      "source": "Wikibooks - Feng Shui Flying Star Feng Shui/Period 7",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_7",
+      "validated": true,
+      "validated_date": "2026-05-17",
+      "notes": "Mountain=E2, Facing=W2 from source",
+      "grid": {
+        "SE": {"mountain": 6, "water": 6, "base": 1},
+        "S": {"mountain": 1, "water": 2, "base": 5},
+        "SW": {"mountain": 8, "water": 4, "base": 3},
+        "E": {"mountain": 7, "water": 5, "base": 2},
+        "C": {"mountain": 5, "water": 7, "base": 9},
+        "W": {"mountain": 3, "water": 9, "base": 7},
+        "NE": {"mountain": 2, "water": 1, "base": 6},
+        "N": {"mountain": 9, "water": 3, "base": 4},
+        "NW": {"mountain": 4, "water": 8, "base": 8}
+      },
+      "ascii_display": "SE [6 6 1] S [1 2 5] SW [8 4 3]\nE [7 5 2] C [5 7 9] W [3 9 7]\nNE [2 1 6] N [9 3 4] NW [4 8 8]"
+    },
+    {
+      "id": "VC006",
+      "period": 6,
+      "facing": "NE3",
+      "source": "Wikibooks - Feng Shui Flying Star Feng Shui/Period 6",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validated": true,
+      "validated_date": "2026-05-17",
+      "notes": "Mountain=SW3, Facing=NE3 from source",
+      "grid": {
+        "SE": {"mountain": 4, "water": 5, "base": 1},
+        "S": {"mountain": 8, "water": 1, "base": 5},
+        "SW": {"mountain": 6, "water": 3, "base": 3},
+        "E": {"mountain": 5, "water": 4, "base": 2},
+        "C": {"mountain": 3, "water": 6, "base": 9},
+        "W": {"mountain": 1, "water": 8, "base": 7},
+        "NE": {"mountain": 9, "water": 9, "base": 6},
+        "N": {"mountain": 7, "water": 2, "base": 4},
+        "NW": {"mountain": 2, "water": 7, "base": 8}
+      },
+      "ascii_display": "SE [4 5 1] S [8 1 5] SW [6 3 3]\nE [5 4 2] C [3 6 9] W [1 8 7]\nNE [9 9 6] N [7 2 4] NW [2 7 8]"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flying Star Ring-Shift Overlay</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">Local prototype</p>
+      <h1>Flying Star Ring-Shift Overlay</h1>
+      <p class="subtitle">Canonical natal chart stays fixed. The ring shift only remaps visual display positions.</p>
+    </header>
+
+    <section class="controls" aria-label="Chart controls">
+      <label>
+        Period
+        <select id="periodSelect"></select>
+      </label>
+      <label>
+        Facing
+        <select id="facingSelect"></select>
+      </label>
+      <button id="generateBtn" type="button">Generate Chart</button>
+      <button id="shiftCwBtn" type="button">Shift Clockwise</button>
+      <button id="shiftCcwBtn" type="button">Shift Counter-Clockwise</button>
+      <button id="resetBtn" type="button">Reset Shift</button>
+    </section>
+
+    <section class="status" aria-live="polite">
+      <div><strong>Selected:</strong> <span id="selectedLabel">—</span></div>
+      <div><strong>Ring shift:</strong> <span id="shiftLabel">0</span> / 7</div>
+    </section>
+
+    <section id="chartGrid" class="chart-grid" aria-label="3 by 3 chart grid"></section>
+
+    <section class="trace">
+      <h2>Position trace</h2>
+      <pre id="traceOutput">Generate a chart to see palace remapping.</pre>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

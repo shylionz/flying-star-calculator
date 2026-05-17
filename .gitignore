@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS/editor
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Environment/secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+*.kdbx
+
+# Node/local web artifacts
+node_modules/
+dist/
+build/
+.cache/
+.tmp/
+tmp/
+temp/
+
+# Local logs/runtime
+*.log
+*.pid
+*.sqlite
+*.db
+
+# OpenClaw/private local configs
+.openclaw/
+config.local.*
+secrets.*
+auth.*

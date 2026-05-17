@@ -1,0 +1,310 @@
+{
+  "charts": {
+    "6|NE3": {
+      "period": 6,
+      "facing": "NE3",
+      "grid": {
+        "SE": {
+          "mountain": 4,
+          "water": 5,
+          "base": 1
+        },
+        "S": {
+          "mountain": 8,
+          "water": 1,
+          "base": 5
+        },
+        "SW": {
+          "mountain": 6,
+          "water": 3,
+          "base": 3
+        },
+        "E": {
+          "mountain": 5,
+          "water": 4,
+          "base": 2
+        },
+        "C": {
+          "mountain": 3,
+          "water": 6,
+          "base": 9
+        },
+        "W": {
+          "mountain": 1,
+          "water": 8,
+          "base": 7
+        },
+        "NE": {
+          "mountain": 9,
+          "water": 9,
+          "base": 6
+        },
+        "N": {
+          "mountain": 7,
+          "water": 2,
+          "base": 4
+        },
+        "NW": {
+          "mountain": 2,
+          "water": 7,
+          "base": 8
+        }
+      }
+    },
+    "7|W2": {
+      "period": 7,
+      "facing": "W2",
+      "grid": {
+        "SE": {
+          "mountain": 6,
+          "water": 6,
+          "base": 1
+        },
+        "S": {
+          "mountain": 1,
+          "water": 2,
+          "base": 5
+        },
+        "SW": {
+          "mountain": 8,
+          "water": 4,
+          "base": 3
+        },
+        "E": {
+          "mountain": 7,
+          "water": 5,
+          "base": 2
+        },
+        "C": {
+          "mountain": 5,
+          "water": 7,
+          "base": 9
+        },
+        "W": {
+          "mountain": 3,
+          "water": 9,
+          "base": 7
+        },
+        "NE": {
+          "mountain": 2,
+          "water": 1,
+          "base": 6
+        },
+        "N": {
+          "mountain": 9,
+          "water": 3,
+          "base": 4
+        },
+        "NW": {
+          "mountain": 4,
+          "water": 8,
+          "base": 8
+        }
+      }
+    },
+    "8|N1": {
+      "period": 8,
+      "facing": "N1",
+      "grid": {
+        "SE": {
+          "mountain": 5,
+          "water": 7,
+          "base": 2
+        },
+        "S": {
+          "mountain": 9,
+          "water": 3,
+          "base": 7
+        },
+        "SW": {
+          "mountain": 7,
+          "water": 5,
+          "base": 9
+        },
+        "E": {
+          "mountain": 6,
+          "water": 6,
+          "base": 1
+        },
+        "C": {
+          "mountain": 4,
+          "water": 8,
+          "base": 3
+        },
+        "W": {
+          "mountain": 2,
+          "water": 1,
+          "base": 5
+        },
+        "NE": {
+          "mountain": 1,
+          "water": 2,
+          "base": 6
+        },
+        "N": {
+          "mountain": 8,
+          "water": 4,
+          "base": 8
+        },
+        "NW": {
+          "mountain": 3,
+          "water": 9,
+          "base": 4
+        }
+      }
+    },
+    "8|SW2": {
+      "period": 8,
+      "facing": "SW2",
+      "grid": {
+        "SE": {
+          "mountain": 1,
+          "water": 7,
+          "base": 4
+        },
+        "S": {
+          "mountain": 6,
+          "water": 3,
+          "base": 9
+        },
+        "SW": {
+          "mountain": 8,
+          "water": 5,
+          "base": 2
+        },
+        "E": {
+          "mountain": 9,
+          "water": 6,
+          "base": 3
+        },
+        "C": {
+          "mountain": 2,
+          "water": 8,
+          "base": 5
+        },
+        "W": {
+          "mountain": 4,
+          "water": 1,
+          "base": 7
+        },
+        "NE": {
+          "mountain": 5,
+          "water": 2,
+          "base": 8
+        },
+        "N": {
+          "mountain": 7,
+          "water": 4,
+          "base": 1
+        },
+        "NW": {
+          "mountain": 3,
+          "water": 9,
+          "base": 6
+        }
+      }
+    },
+    "9|E1": {
+      "period": 9,
+      "facing": "E1",
+      "grid": {
+        "SE": {
+          "mountain": 3,
+          "water": 8,
+          "base": 6
+        },
+        "S": {
+          "mountain": 7,
+          "water": 4,
+          "base": 2
+        },
+        "SW": {
+          "mountain": 5,
+          "water": 6,
+          "base": 4
+        },
+        "E": {
+          "mountain": 4,
+          "water": 7,
+          "base": 5
+        },
+        "C": {
+          "mountain": 2,
+          "water": 9,
+          "base": 7
+        },
+        "W": {
+          "mountain": 9,
+          "water": 2,
+          "base": 9
+        },
+        "NE": {
+          "mountain": 8,
+          "water": 3,
+          "base": 1
+        },
+        "N": {
+          "mountain": 6,
+          "water": 5,
+          "base": 3
+        },
+        "NW": {
+          "mountain": 1,
+          "water": 1,
+          "base": 8
+        }
+      }
+    },
+    "9|SE": {
+      "period": 9,
+      "facing": "SE",
+      "grid": {
+        "SE": {
+          "mountain": 1,
+          "water": 1,
+          "base": 8
+        },
+        "S": {
+          "mountain": 5,
+          "water": 5,
+          "base": 4
+        },
+        "SW": {
+          "mountain": 3,
+          "water": 3,
+          "base": 6
+        },
+        "E": {
+          "mountain": 2,
+          "water": 2,
+          "base": 7
+        },
+        "C": {
+          "mountain": 9,
+          "water": 9,
+          "base": 9
+        },
+        "W": {
+          "mountain": 7,
+          "water": 7,
+          "base": 2
+        },
+        "NE": {
+          "mountain": 6,
+          "water": 6,
+          "base": 3
+        },
+        "N": {
+          "mountain": 4,
+          "water": 4,
+          "base": 5
+        },
+        "NW": {
+          "mountain": 8,
+          "water": 8,
+          "base": 1
+        }
+      }
+    }
+  }
+}
