@@ -185,7 +185,7 @@ function populateSelectors() {
     .join("");
   periodSelect.value = initialParams.get("period") || "9";
   populateFacingOptions();
-  const requestedFacing = initialParams.get("facing") || "SE";
+  const requestedFacing = initialParams.get("facing") || "SE2";
   if ([...facingSelect.options].some((option) => option.value === requestedFacing)) facingSelect.value = requestedFacing;
 }
 
@@ -203,7 +203,7 @@ function populateFacingOptions() {
   generateBtn.disabled = false;
   facingSelect.innerHTML = facings
     .map((facing) => {
-      const status = availableFacings.has(facing) ? " — Available" : " — Pending validation";
+      const status = availableFacings.has(facing) ? " — Available" : " — Not extracted";
       return `<option value="${facing}" data-facing="${facing}">${FACING_LABELS[facing] || facing}${status}</option>`;
     })
     .join("");
@@ -237,9 +237,9 @@ function renderUnavailable(period, facing) {
   orientationLabel.textContent = ORIENTATION_LABELS[orientationSelect.value];
   shiftLabel.textContent = String(normalized);
   setCaseStatus(false);
-  availabilityMessage.textContent = `Chart not yet available for Period ${period} / ${facing}. Please select a validated case.`;
-  chartGrid.innerHTML = `<div class="empty-state">Chart not yet available for Period ${period} / ${facing}.<br><span>Please select a validated case.</span></div>`;
-  traceOutput.textContent = `${JSON.stringify(selectedDebug(period, facing), null, 2)}\n\nNo validated chart for Period ${period} / ${facing}.`;
+  availabilityMessage.textContent = `Chart not extracted for Period ${period} / ${facing}. Please select one of the 24 validated mountain facings.`;
+  chartGrid.innerHTML = `<div class="empty-state">Chart not extracted for Period ${period} / ${facing}.<br><span>Please select one of the 24 validated mountain facings.</span></div>`;
+  traceOutput.textContent = `${JSON.stringify(selectedDebug(period, facing), null, 2)}\n\nNo extracted chart for Period ${period} / ${facing}.`;
 }
 
 function redraw() {
