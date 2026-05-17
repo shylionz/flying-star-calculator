@@ -9814,7 +9814,9 @@
           "water": 7,
           "base": 2
         }
-      }
+      },
+      "conflict_review_required": true,
+      "conflict_review_path": "validation/conflict_review.md"
     },
     {
       "id": "P7-E1",
@@ -10766,7 +10768,9 @@
           "water": 8,
           "base": 4
         }
-      }
+      },
+      "conflict_review_required": true,
+      "conflict_review_path": "validation/conflict_review.md"
     },
     {
       "id": "P7-W3",
@@ -12194,7 +12198,9 @@
           "water": 9,
           "base": 3
         }
-      }
+      },
+      "conflict_review_required": true,
+      "conflict_review_path": "validation/conflict_review.md"
     },
     {
       "id": "P8-SW3",
@@ -13146,7 +13152,9 @@
           "water": 1,
           "base": 1
         }
-      }
+      },
+      "conflict_review_required": true,
+      "conflict_review_path": "validation/conflict_review.md"
     },
     {
       "id": "P9-E2",
@@ -14712,5 +14720,15 @@
         }
       }
     }
-  ]
+  ],
+  "conflict_review": {
+    "conflict_review_required_keys": [
+      "6|NE3",
+      "7|W2",
+      "8|SW2",
+      "9|E1"
+    ],
+    "conflict_review_path": "validation/conflict_review.md",
+    "current_value_policy": "App continues to use the 216 extracted Wikibooks corpus until manual source decision."
+  }
 }

@@ -107,7 +107,12 @@ function chartKey(period, facing) {
   return `${period}|${facing}`;
 }
 
-function setCaseStatus(available) {
+function setCaseStatus(available, conflictReviewRequired = false) {
+  if (available && conflictReviewRequired) {
+    caseStatus.textContent = "Available · Source conflict noted";
+    caseStatus.className = "case-status conflict";
+    return;
+  }
   caseStatus.textContent = available ? "Available" : "Pending validation";
   caseStatus.className = `case-status ${available ? "available" : "pending"}`;
 }
@@ -134,6 +139,7 @@ function selectedDebug(period, facing) {
     selectedOptionLabel: getSelectedFacingLabel(),
     lookupKey,
     availability: Boolean(charts[lookupKey]) ? "Available" : "Pending validation",
+    conflictReviewRequired: Boolean(charts[lookupKey]?.conflict_review_required),
   };
 }
 
@@ -203,7 +209,9 @@ function populateFacingOptions() {
   generateBtn.disabled = false;
   facingSelect.innerHTML = facings
     .map((facing) => {
-      const status = availableFacings.has(facing) ? " — Available" : " — Not extracted";
+      const key = chartKey(period, facing);
+      const conflict = charts[key]?.conflict_review_required ? " — Source conflict noted" : "";
+      const status = availableFacings.has(facing) ? ` — Available${conflict}` : " — Not extracted";
       return `<option value="${facing}" data-facing="${facing}">${FACING_LABELS[facing] || facing}${status}</option>`;
     })
     .join("");
@@ -248,8 +256,8 @@ function redraw() {
     return;
   }
 
-  availabilityMessage.textContent = "";
-  setCaseStatus(true);
+  availabilityMessage.textContent = currentChart.conflict_review_required ? "Source conflict noted for this case; chart uses extracted 216-corpus values pending manual review." : "";
+  setCaseStatus(true, Boolean(currentChart.conflict_review_required));
 
   const orientation = orientationSelect.value;
   const grid = buildDisplayGrid(currentChart, ringShift, orientation);

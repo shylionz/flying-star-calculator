@@ -171,4 +171,9 @@ pre {
   background: rgba(239, 68, 68, 0.14);
   border: 1px solid rgba(239, 68, 68, 0.35);
 }
+.case-status.conflict {
+  color: #fde68a;
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid rgba(245, 158, 11, 0.42);
+}
 .empty-state span { color: var(--muted); font-size: 1rem; }

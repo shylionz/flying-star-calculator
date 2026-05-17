@@ -6440,7 +6440,9 @@
           "water": 7,
           "base": 2
         }
-      }
+      },
+      "conflict_review_required": true,
+      "conflict_review_path": "validation/conflict_review.md"
     },
     "6|E1": {
       "period": 6,
@@ -8378,7 +8380,9 @@
           "water": 8,
           "base": 4
         }
-      }
+      },
+      "conflict_review_required": true,
+      "conflict_review_path": "validation/conflict_review.md"
     },
     "7|W3": {
       "period": 7,
@@ -9449,7 +9453,9 @@
           "water": 9,
           "base": 3
         }
-      }
+      },
+      "conflict_review_required": true,
+      "conflict_review_path": "validation/conflict_review.md"
     },
     "8|SW3": {
       "period": 8,
@@ -10163,7 +10169,9 @@
           "water": 1,
           "base": 1
         }
-      }
+      },
+      "conflict_review_required": true,
+      "conflict_review_path": "validation/conflict_review.md"
     },
     "9|E2": {
       "period": 9,
