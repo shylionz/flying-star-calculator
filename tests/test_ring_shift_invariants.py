@@ -14,7 +14,7 @@ from src.orientation.transform import (
     palace_star_signature_from_grid,
 )
 
-VALIDATED_CASES = ((9, "SE"), (8, "N1"), (8, "SW2"), (9, "E1"), (7, "W2"), (6, "NE3"))
+VALIDATED_CASES = ((9, "SE2"), (8, "N1"), (8, "SW2"), (9, "E1"), (7, "W2"), (6, "NE3"))
 SHIFT_RANGE = range(-8, 9)
 
 

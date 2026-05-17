@@ -1,0 +1,1741 @@
+{
+  "description": "Extracted validation corpus for Flying Star Period 6",
+  "period": 6,
+  "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+  "position_order": [
+    "SE",
+    "S",
+    "SW",
+    "E",
+    "C",
+    "W",
+    "NE",
+    "N",
+    "NW"
+  ],
+  "audit": {
+    "period": 6,
+    "extracted_count": 24,
+    "expected_count": 24,
+    "duplicate_count": 0,
+    "duplicate_keys": [],
+    "malformed_count": 0,
+    "malformed": [],
+    "conflicts": [],
+    "missing_facings": [],
+    "extra_facings": [],
+    "sample_object": {
+      "id": "P6-E1",
+      "period": 6,
+      "facing": "E1",
+      "mountain": "W1",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 5,
+          "water": 5,
+          "base": 9
+        },
+        "S": {
+          "mountain": 9,
+          "water": 1,
+          "base": 4
+        },
+        "SW": {
+          "mountain": 7,
+          "water": 3,
+          "base": 2
+        },
+        "E": {
+          "mountain": 6,
+          "water": 4,
+          "base": 1
+        },
+        "C": {
+          "mountain": 4,
+          "water": 6,
+          "base": 8
+        },
+        "W": {
+          "mountain": 2,
+          "water": 8,
+          "base": 6
+        },
+        "NE": {
+          "mountain": 1,
+          "water": 9,
+          "base": 5
+        },
+        "N": {
+          "mountain": 8,
+          "water": 2,
+          "base": 3
+        },
+        "NW": {
+          "mountain": 3,
+          "water": 7,
+          "base": 7
+        }
+      },
+      "raw_cells": {
+        "SE": "955",
+        "S": "419",
+        "SW": "237",
+        "E": "146",
+        "C": "864",
+        "W": "682",
+        "NE": "591",
+        "N": "328",
+        "NW": "773"
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "id": "P6-E1",
+      "period": 6,
+      "facing": "E1",
+      "mountain": "W1",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 5,
+          "water": 5,
+          "base": 9
+        },
+        "S": {
+          "mountain": 9,
+          "water": 1,
+          "base": 4
+        },
+        "SW": {
+          "mountain": 7,
+          "water": 3,
+          "base": 2
+        },
+        "E": {
+          "mountain": 6,
+          "water": 4,
+          "base": 1
+        },
+        "C": {
+          "mountain": 4,
+          "water": 6,
+          "base": 8
+        },
+        "W": {
+          "mountain": 2,
+          "water": 8,
+          "base": 6
+        },
+        "NE": {
+          "mountain": 1,
+          "water": 9,
+          "base": 5
+        },
+        "N": {
+          "mountain": 8,
+          "water": 2,
+          "base": 3
+        },
+        "NW": {
+          "mountain": 3,
+          "water": 7,
+          "base": 7
+        }
+      }
+    },
+    {
+      "id": "P6-E2",
+      "period": 6,
+      "facing": "E2",
+      "mountain": "W2",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 3,
+          "water": 5,
+          "base": 7
+        },
+        "S": {
+          "mountain": 8,
+          "water": 1,
+          "base": 3
+        },
+        "SW": {
+          "mountain": 1,
+          "water": 3,
+          "base": 5
+        },
+        "E": {
+          "mountain": 2,
+          "water": 4,
+          "base": 6
+        },
+        "C": {
+          "mountain": 4,
+          "water": 6,
+          "base": 8
+        },
+        "W": {
+          "mountain": 6,
+          "water": 8,
+          "base": 1
+        },
+        "NE": {
+          "mountain": 7,
+          "water": 9,
+          "base": 2
+        },
+        "N": {
+          "mountain": 9,
+          "water": 2,
+          "base": 4
+        },
+        "NW": {
+          "mountain": 5,
+          "water": 7,
+          "base": 9
+        }
+      }
+    },
+    {
+      "id": "P6-E3",
+      "period": 6,
+      "facing": "E3",
+      "mountain": "W3",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 3,
+          "water": 5,
+          "base": 7
+        },
+        "S": {
+          "mountain": 8,
+          "water": 1,
+          "base": 3
+        },
+        "SW": {
+          "mountain": 1,
+          "water": 3,
+          "base": 5
+        },
+        "E": {
+          "mountain": 2,
+          "water": 4,
+          "base": 6
+        },
+        "C": {
+          "mountain": 4,
+          "water": 6,
+          "base": 8
+        },
+        "W": {
+          "mountain": 6,
+          "water": 8,
+          "base": 1
+        },
+        "NE": {
+          "mountain": 7,
+          "water": 9,
+          "base": 2
+        },
+        "N": {
+          "mountain": 9,
+          "water": 2,
+          "base": 4
+        },
+        "NW": {
+          "mountain": 5,
+          "water": 7,
+          "base": 9
+        }
+      }
+    },
+    {
+      "id": "P6-SE1",
+      "period": 6,
+      "facing": "SE1",
+      "mountain": "NW1",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 6,
+          "water": 5,
+          "base": 6
+        },
+        "S": {
+          "mountain": 1,
+          "water": 1,
+          "base": 2
+        },
+        "SW": {
+          "mountain": 8,
+          "water": 3,
+          "base": 4
+        },
+        "E": {
+          "mountain": 7,
+          "water": 4,
+          "base": 5
+        },
+        "C": {
+          "mountain": 5,
+          "water": 6,
+          "base": 7
+        },
+        "W": {
+          "mountain": 3,
+          "water": 8,
+          "base": 9
+        },
+        "NE": {
+          "mountain": 2,
+          "water": 9,
+          "base": 1
+        },
+        "N": {
+          "mountain": 9,
+          "water": 2,
+          "base": 3
+        },
+        "NW": {
+          "mountain": 4,
+          "water": 7,
+          "base": 8
+        }
+      }
+    },
+    {
+      "id": "P6-SE2",
+      "period": 6,
+      "facing": "SE2",
+      "mountain": "NW2",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 4,
+          "water": 5,
+          "base": 8
+        },
+        "S": {
+          "mountain": 9,
+          "water": 1,
+          "base": 3
+        },
+        "SW": {
+          "mountain": 2,
+          "water": 3,
+          "base": 1
+        },
+        "E": {
+          "mountain": 3,
+          "water": 4,
+          "base": 9
+        },
+        "C": {
+          "mountain": 5,
+          "water": 6,
+          "base": 7
+        },
+        "W": {
+          "mountain": 7,
+          "water": 8,
+          "base": 5
+        },
+        "NE": {
+          "mountain": 8,
+          "water": 9,
+          "base": 4
+        },
+        "N": {
+          "mountain": 1,
+          "water": 2,
+          "base": 2
+        },
+        "NW": {
+          "mountain": 6,
+          "water": 7,
+          "base": 6
+        }
+      }
+    },
+    {
+      "id": "P6-SE3",
+      "period": 6,
+      "facing": "SE3",
+      "mountain": "NW3",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 4,
+          "water": 5,
+          "base": 8
+        },
+        "S": {
+          "mountain": 9,
+          "water": 1,
+          "base": 3
+        },
+        "SW": {
+          "mountain": 2,
+          "water": 3,
+          "base": 1
+        },
+        "E": {
+          "mountain": 3,
+          "water": 4,
+          "base": 9
+        },
+        "C": {
+          "mountain": 5,
+          "water": 6,
+          "base": 7
+        },
+        "W": {
+          "mountain": 7,
+          "water": 8,
+          "base": 5
+        },
+        "NE": {
+          "mountain": 8,
+          "water": 9,
+          "base": 4
+        },
+        "N": {
+          "mountain": 1,
+          "water": 2,
+          "base": 2
+        },
+        "NW": {
+          "mountain": 6,
+          "water": 7,
+          "base": 6
+        }
+      }
+    },
+    {
+      "id": "P6-S1",
+      "period": 6,
+      "facing": "S1",
+      "mountain": "N1",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 9,
+          "water": 5,
+          "base": 3
+        },
+        "S": {
+          "mountain": 5,
+          "water": 1,
+          "base": 7
+        },
+        "SW": {
+          "mountain": 7,
+          "water": 3,
+          "base": 5
+        },
+        "E": {
+          "mountain": 8,
+          "water": 4,
+          "base": 4
+        },
+        "C": {
+          "mountain": 1,
+          "water": 6,
+          "base": 2
+        },
+        "W": {
+          "mountain": 3,
+          "water": 8,
+          "base": 9
+        },
+        "NE": {
+          "mountain": 4,
+          "water": 9,
+          "base": 8
+        },
+        "N": {
+          "mountain": 6,
+          "water": 2,
+          "base": 6
+        },
+        "NW": {
+          "mountain": 2,
+          "water": 7,
+          "base": 1
+        }
+      }
+    },
+    {
+      "id": "P6-S2",
+      "period": 6,
+      "facing": "S2",
+      "mountain": "N2",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 2,
+          "water": 5,
+          "base": 1
+        },
+        "S": {
+          "mountain": 6,
+          "water": 1,
+          "base": 6
+        },
+        "SW": {
+          "mountain": 4,
+          "water": 3,
+          "base": 8
+        },
+        "E": {
+          "mountain": 3,
+          "water": 4,
+          "base": 9
+        },
+        "C": {
+          "mountain": 1,
+          "water": 6,
+          "base": 2
+        },
+        "W": {
+          "mountain": 8,
+          "water": 8,
+          "base": 4
+        },
+        "NE": {
+          "mountain": 7,
+          "water": 9,
+          "base": 5
+        },
+        "N": {
+          "mountain": 5,
+          "water": 2,
+          "base": 7
+        },
+        "NW": {
+          "mountain": 9,
+          "water": 7,
+          "base": 3
+        }
+      }
+    },
+    {
+      "id": "P6-S3",
+      "period": 6,
+      "facing": "S3",
+      "mountain": "N3",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 2,
+          "water": 5,
+          "base": 1
+        },
+        "S": {
+          "mountain": 6,
+          "water": 1,
+          "base": 6
+        },
+        "SW": {
+          "mountain": 4,
+          "water": 3,
+          "base": 8
+        },
+        "E": {
+          "mountain": 3,
+          "water": 4,
+          "base": 9
+        },
+        "C": {
+          "mountain": 1,
+          "water": 6,
+          "base": 2
+        },
+        "W": {
+          "mountain": 8,
+          "water": 8,
+          "base": 4
+        },
+        "NE": {
+          "mountain": 7,
+          "water": 9,
+          "base": 5
+        },
+        "N": {
+          "mountain": 5,
+          "water": 2,
+          "base": 7
+        },
+        "NW": {
+          "mountain": 9,
+          "water": 7,
+          "base": 3
+        }
+      }
+    },
+    {
+      "id": "P6-SW1",
+      "period": 6,
+      "facing": "SW1",
+      "mountain": "NE1",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 2,
+          "water": 5,
+          "base": 8
+        },
+        "S": {
+          "mountain": 7,
+          "water": 1,
+          "base": 4
+        },
+        "SW": {
+          "mountain": 9,
+          "water": 3,
+          "base": 6
+        },
+        "E": {
+          "mountain": 1,
+          "water": 4,
+          "base": 7
+        },
+        "C": {
+          "mountain": 3,
+          "water": 6,
+          "base": 9
+        },
+        "W": {
+          "mountain": 5,
+          "water": 8,
+          "base": 2
+        },
+        "NE": {
+          "mountain": 6,
+          "water": 9,
+          "base": 3
+        },
+        "N": {
+          "mountain": 8,
+          "water": 2,
+          "base": 5
+        },
+        "NW": {
+          "mountain": 4,
+          "water": 7,
+          "base": 1
+        }
+      }
+    },
+    {
+      "id": "P6-SW2",
+      "period": 6,
+      "facing": "SW2",
+      "mountain": "NE2",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 4,
+          "water": 5,
+          "base": 1
+        },
+        "S": {
+          "mountain": 8,
+          "water": 1,
+          "base": 5
+        },
+        "SW": {
+          "mountain": 6,
+          "water": 3,
+          "base": 3
+        },
+        "E": {
+          "mountain": 5,
+          "water": 4,
+          "base": 2
+        },
+        "C": {
+          "mountain": 3,
+          "water": 6,
+          "base": 9
+        },
+        "W": {
+          "mountain": 1,
+          "water": 8,
+          "base": 7
+        },
+        "NE": {
+          "mountain": 9,
+          "water": 9,
+          "base": 6
+        },
+        "N": {
+          "mountain": 7,
+          "water": 2,
+          "base": 4
+        },
+        "NW": {
+          "mountain": 2,
+          "water": 7,
+          "base": 8
+        }
+      }
+    },
+    {
+      "id": "P6-SW3",
+      "period": 6,
+      "facing": "SW3",
+      "mountain": "NE3",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 4,
+          "water": 5,
+          "base": 1
+        },
+        "S": {
+          "mountain": 8,
+          "water": 1,
+          "base": 5
+        },
+        "SW": {
+          "mountain": 6,
+          "water": 3,
+          "base": 3
+        },
+        "E": {
+          "mountain": 5,
+          "water": 4,
+          "base": 2
+        },
+        "C": {
+          "mountain": 3,
+          "water": 6,
+          "base": 9
+        },
+        "W": {
+          "mountain": 1,
+          "water": 8,
+          "base": 7
+        },
+        "NE": {
+          "mountain": 9,
+          "water": 9,
+          "base": 6
+        },
+        "N": {
+          "mountain": 7,
+          "water": 2,
+          "base": 4
+        },
+        "NW": {
+          "mountain": 2,
+          "water": 7,
+          "base": 8
+        }
+      }
+    },
+    {
+      "id": "P6-W1",
+      "period": 6,
+      "facing": "W1",
+      "mountain": "E1",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 9,
+          "water": 5,
+          "base": 5
+        },
+        "S": {
+          "mountain": 4,
+          "water": 1,
+          "base": 9
+        },
+        "SW": {
+          "mountain": 2,
+          "water": 3,
+          "base": 7
+        },
+        "E": {
+          "mountain": 1,
+          "water": 4,
+          "base": 6
+        },
+        "C": {
+          "mountain": 8,
+          "water": 6,
+          "base": 4
+        },
+        "W": {
+          "mountain": 6,
+          "water": 8,
+          "base": 2
+        },
+        "NE": {
+          "mountain": 5,
+          "water": 9,
+          "base": 1
+        },
+        "N": {
+          "mountain": 3,
+          "water": 2,
+          "base": 8
+        },
+        "NW": {
+          "mountain": 7,
+          "water": 7,
+          "base": 3
+        }
+      }
+    },
+    {
+      "id": "P6-W2",
+      "period": 6,
+      "facing": "W2",
+      "mountain": "E2",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 7,
+          "water": 5,
+          "base": 3
+        },
+        "S": {
+          "mountain": 3,
+          "water": 1,
+          "base": 8
+        },
+        "SW": {
+          "mountain": 5,
+          "water": 3,
+          "base": 1
+        },
+        "E": {
+          "mountain": 6,
+          "water": 4,
+          "base": 2
+        },
+        "C": {
+          "mountain": 8,
+          "water": 6,
+          "base": 4
+        },
+        "W": {
+          "mountain": 1,
+          "water": 8,
+          "base": 6
+        },
+        "NE": {
+          "mountain": 2,
+          "water": 9,
+          "base": 7
+        },
+        "N": {
+          "mountain": 4,
+          "water": 2,
+          "base": 9
+        },
+        "NW": {
+          "mountain": 9,
+          "water": 7,
+          "base": 5
+        }
+      }
+    },
+    {
+      "id": "P6-W3",
+      "period": 6,
+      "facing": "W3",
+      "mountain": "E3",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 7,
+          "water": 5,
+          "base": 3
+        },
+        "S": {
+          "mountain": 3,
+          "water": 1,
+          "base": 8
+        },
+        "SW": {
+          "mountain": 5,
+          "water": 3,
+          "base": 1
+        },
+        "E": {
+          "mountain": 6,
+          "water": 4,
+          "base": 2
+        },
+        "C": {
+          "mountain": 8,
+          "water": 6,
+          "base": 4
+        },
+        "W": {
+          "mountain": 1,
+          "water": 8,
+          "base": 6
+        },
+        "NE": {
+          "mountain": 2,
+          "water": 9,
+          "base": 7
+        },
+        "N": {
+          "mountain": 4,
+          "water": 2,
+          "base": 9
+        },
+        "NW": {
+          "mountain": 9,
+          "water": 7,
+          "base": 5
+        }
+      }
+    },
+    {
+      "id": "P6-NW1",
+      "period": 6,
+      "facing": "NW1",
+      "mountain": "SE1",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 6,
+          "water": 5,
+          "base": 6
+        },
+        "S": {
+          "mountain": 2,
+          "water": 1,
+          "base": 1
+        },
+        "SW": {
+          "mountain": 4,
+          "water": 3,
+          "base": 8
+        },
+        "E": {
+          "mountain": 5,
+          "water": 4,
+          "base": 7
+        },
+        "C": {
+          "mountain": 7,
+          "water": 6,
+          "base": 5
+        },
+        "W": {
+          "mountain": 9,
+          "water": 8,
+          "base": 3
+        },
+        "NE": {
+          "mountain": 1,
+          "water": 9,
+          "base": 2
+        },
+        "N": {
+          "mountain": 3,
+          "water": 2,
+          "base": 9
+        },
+        "NW": {
+          "mountain": 8,
+          "water": 7,
+          "base": 4
+        }
+      }
+    },
+    {
+      "id": "P6-NW2",
+      "period": 6,
+      "facing": "NW2",
+      "mountain": "SE2",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 8,
+          "water": 5,
+          "base": 4
+        },
+        "S": {
+          "mountain": 3,
+          "water": 1,
+          "base": 9
+        },
+        "SW": {
+          "mountain": 1,
+          "water": 3,
+          "base": 2
+        },
+        "E": {
+          "mountain": 9,
+          "water": 4,
+          "base": 3
+        },
+        "C": {
+          "mountain": 7,
+          "water": 6,
+          "base": 5
+        },
+        "W": {
+          "mountain": 5,
+          "water": 8,
+          "base": 7
+        },
+        "NE": {
+          "mountain": 4,
+          "water": 9,
+          "base": 8
+        },
+        "N": {
+          "mountain": 2,
+          "water": 2,
+          "base": 1
+        },
+        "NW": {
+          "mountain": 6,
+          "water": 7,
+          "base": 6
+        }
+      }
+    },
+    {
+      "id": "P6-NW3",
+      "period": 6,
+      "facing": "NW3",
+      "mountain": "SE3",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 8,
+          "water": 5,
+          "base": 4
+        },
+        "S": {
+          "mountain": 3,
+          "water": 1,
+          "base": 9
+        },
+        "SW": {
+          "mountain": 1,
+          "water": 3,
+          "base": 2
+        },
+        "E": {
+          "mountain": 9,
+          "water": 4,
+          "base": 3
+        },
+        "C": {
+          "mountain": 7,
+          "water": 6,
+          "base": 5
+        },
+        "W": {
+          "mountain": 5,
+          "water": 8,
+          "base": 7
+        },
+        "NE": {
+          "mountain": 4,
+          "water": 9,
+          "base": 8
+        },
+        "N": {
+          "mountain": 2,
+          "water": 2,
+          "base": 1
+        },
+        "NW": {
+          "mountain": 6,
+          "water": 7,
+          "base": 6
+        }
+      }
+    },
+    {
+      "id": "P6-N1",
+      "period": 6,
+      "facing": "N1",
+      "mountain": "S1",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 3,
+          "water": 5,
+          "base": 9
+        },
+        "S": {
+          "mountain": 7,
+          "water": 1,
+          "base": 5
+        },
+        "SW": {
+          "mountain": 5,
+          "water": 3,
+          "base": 7
+        },
+        "E": {
+          "mountain": 4,
+          "water": 4,
+          "base": 8
+        },
+        "C": {
+          "mountain": 2,
+          "water": 6,
+          "base": 1
+        },
+        "W": {
+          "mountain": 9,
+          "water": 8,
+          "base": 3
+        },
+        "NE": {
+          "mountain": 8,
+          "water": 9,
+          "base": 4
+        },
+        "N": {
+          "mountain": 6,
+          "water": 2,
+          "base": 6
+        },
+        "NW": {
+          "mountain": 1,
+          "water": 7,
+          "base": 2
+        }
+      }
+    },
+    {
+      "id": "P6-N2",
+      "period": 6,
+      "facing": "N2",
+      "mountain": "S2",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 1,
+          "water": 5,
+          "base": 2
+        },
+        "S": {
+          "mountain": 6,
+          "water": 1,
+          "base": 6
+        },
+        "SW": {
+          "mountain": 8,
+          "water": 3,
+          "base": 4
+        },
+        "E": {
+          "mountain": 9,
+          "water": 4,
+          "base": 3
+        },
+        "C": {
+          "mountain": 2,
+          "water": 6,
+          "base": 1
+        },
+        "W": {
+          "mountain": 4,
+          "water": 8,
+          "base": 8
+        },
+        "NE": {
+          "mountain": 5,
+          "water": 9,
+          "base": 7
+        },
+        "N": {
+          "mountain": 7,
+          "water": 2,
+          "base": 5
+        },
+        "NW": {
+          "mountain": 3,
+          "water": 7,
+          "base": 9
+        }
+      }
+    },
+    {
+      "id": "P6-N3",
+      "period": 6,
+      "facing": "N3",
+      "mountain": "S3",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 1,
+          "water": 5,
+          "base": 2
+        },
+        "S": {
+          "mountain": 6,
+          "water": 1,
+          "base": 6
+        },
+        "SW": {
+          "mountain": 8,
+          "water": 3,
+          "base": 4
+        },
+        "E": {
+          "mountain": 9,
+          "water": 4,
+          "base": 3
+        },
+        "C": {
+          "mountain": 2,
+          "water": 6,
+          "base": 1
+        },
+        "W": {
+          "mountain": 4,
+          "water": 8,
+          "base": 8
+        },
+        "NE": {
+          "mountain": 5,
+          "water": 9,
+          "base": 7
+        },
+        "N": {
+          "mountain": 7,
+          "water": 2,
+          "base": 5
+        },
+        "NW": {
+          "mountain": 3,
+          "water": 7,
+          "base": 9
+        }
+      }
+    },
+    {
+      "id": "P6-NE1",
+      "period": 6,
+      "facing": "NE1",
+      "mountain": "SW1",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 8,
+          "water": 5,
+          "base": 2
+        },
+        "S": {
+          "mountain": 4,
+          "water": 1,
+          "base": 7
+        },
+        "SW": {
+          "mountain": 6,
+          "water": 3,
+          "base": 9
+        },
+        "E": {
+          "mountain": 7,
+          "water": 4,
+          "base": 1
+        },
+        "C": {
+          "mountain": 9,
+          "water": 6,
+          "base": 3
+        },
+        "W": {
+          "mountain": 2,
+          "water": 8,
+          "base": 5
+        },
+        "NE": {
+          "mountain": 3,
+          "water": 9,
+          "base": 6
+        },
+        "N": {
+          "mountain": 5,
+          "water": 2,
+          "base": 8
+        },
+        "NW": {
+          "mountain": 1,
+          "water": 7,
+          "base": 4
+        }
+      }
+    },
+    {
+      "id": "P6-NE2",
+      "period": 6,
+      "facing": "NE2",
+      "mountain": "SW2",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 1,
+          "water": 5,
+          "base": 4
+        },
+        "S": {
+          "mountain": 5,
+          "water": 1,
+          "base": 8
+        },
+        "SW": {
+          "mountain": 3,
+          "water": 3,
+          "base": 6
+        },
+        "E": {
+          "mountain": 2,
+          "water": 4,
+          "base": 5
+        },
+        "C": {
+          "mountain": 9,
+          "water": 6,
+          "base": 3
+        },
+        "W": {
+          "mountain": 7,
+          "water": 8,
+          "base": 1
+        },
+        "NE": {
+          "mountain": 6,
+          "water": 9,
+          "base": 9
+        },
+        "N": {
+          "mountain": 4,
+          "water": 2,
+          "base": 7
+        },
+        "NW": {
+          "mountain": 8,
+          "water": 7,
+          "base": 2
+        }
+      }
+    },
+    {
+      "id": "P6-NE3",
+      "period": 6,
+      "facing": "NE3",
+      "mountain": "SW3",
+      "source": "Wikibooks Flying Star Feng Shui period page",
+      "source_url": "https://en.wikibooks.org/wiki/Feng_Shui/Flying_Star_Feng_Shui/Period_6",
+      "validation_status": "extracted",
+      "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+      "position_order": [
+        "SE",
+        "S",
+        "SW",
+        "E",
+        "C",
+        "W",
+        "NE",
+        "N",
+        "NW"
+      ],
+      "grid": {
+        "SE": {
+          "mountain": 1,
+          "water": 5,
+          "base": 4
+        },
+        "S": {
+          "mountain": 5,
+          "water": 1,
+          "base": 8
+        },
+        "SW": {
+          "mountain": 3,
+          "water": 3,
+          "base": 6
+        },
+        "E": {
+          "mountain": 2,
+          "water": 4,
+          "base": 5
+        },
+        "C": {
+          "mountain": 9,
+          "water": 6,
+          "base": 3
+        },
+        "W": {
+          "mountain": 7,
+          "water": 8,
+          "base": 1
+        },
+        "NE": {
+          "mountain": 6,
+          "water": 9,
+          "base": 9
+        },
+        "N": {
+          "mountain": 4,
+          "water": 2,
+          "base": 7
+        },
+        "NW": {
+          "mountain": 8,
+          "water": 7,
+          "base": 2
+        }
+      }
+    }
+  ]
+}

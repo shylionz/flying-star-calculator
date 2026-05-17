@@ -14,7 +14,7 @@ from src.orientation.transform import (
 )
 
 ORIENTATIONS = ("top", "right", "bottom", "left")
-VALIDATED_CASES = ((9, "SE"), (8, "N1"), (8, "SW2"), (9, "E1"), (7, "W2"), (6, "NE3"))
+VALIDATED_CASES = ((9, "SE2"), (8, "N1"), (8, "SW2"), (9, "E1"), (7, "W2"), (6, "NE3"))
 
 
 def _flat(grid):
@@ -44,7 +44,7 @@ def test_orientation_preserves_assignments_for_case(period, facing):
 
 
 def test_known_bottom_rotation_mapping():
-    chart = generate_natal_chart(9, "SE")
+    chart = generate_natal_chart(9, "SE2")
     grid = oriented_grid(chart, "bottom")
     expected = (("NW", "N", "NE"), ("W", "C", "E"), ("SW", "S", "SE"))
     actual = tuple(tuple(cell["canonical_palace"] for cell in row) for row in grid)
