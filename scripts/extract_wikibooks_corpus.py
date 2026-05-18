@@ -4,8 +4,8 @@
 Reference format notes:
 - Pages list charts as 3x3 numeric grids with South on top.
 - Cell positions are SE,S,SW / E,C,W / NE,N,NW.
-- Wikibooks cell digits are visually left/center/right. App format stores
-  mountain/water/base as right/center/left, matching existing validated cases.
+- Wikibooks cell notation is <sup>A</sup>B<sup>C</sup>.
+- Normalize as mountain=A, base=B, water=C; app stores {mountain, water, base}.
 """
 from __future__ import annotations
 
@@ -88,7 +88,7 @@ def parse_period(period: int, text: str) -> list[dict[str, Any]]:
         grid = {}
         if header_period == period and len(cells) == 9 and all(GRID_CELL.match(cell) for cell in cells):
             for position, raw in zip(POSITIONS, cells):
-                base, water, mountain_star = (int(raw[0]), int(raw[1]), int(raw[2]))
+                mountain_star, base, water = (int(raw[0]), int(raw[1]), int(raw[2]))
                 grid[position] = {"mountain": mountain_star, "water": water, "base": base, "raw": raw}
         cases.append({
             "id": f"P{period:01d}-{facing}",
@@ -98,7 +98,7 @@ def parse_period(period: int, text: str) -> list[dict[str, Any]]:
             "source": "Wikibooks Flying Star Feng Shui period page",
             "source_url": SOURCE_URL.format(period=period),
             "validation_status": "extracted",
-            "validation_notes": "Extracted from Wikibooks period chart. Raw 3-digit cells normalized to app format as mountain=right digit, water=center digit, base=left digit.",
+            "validation_notes": "Extracted from Wikibooks period chart. Raw <sup>A</sup>B<sup>C</sup> cells normalized to app format as mountain=A, water=C, base=B.",
             "position_order": POSITIONS,
             "grid": {p: {k: v for k, v in cell.items() if k != "raw"} for p, cell in grid.items()},
             "raw_cells": dict(zip(POSITIONS, cells)),
@@ -205,7 +205,7 @@ def build_charts_json(cases: list[dict[str, Any]]) -> dict[str, Any]:
         "version": "1.0-full-wikibooks-extraction",
         "created_date": str(date.today()),
         "total_cases": len(charts),
-        "source_method": "Direct extraction from Wikibooks Period 1-9 Flying Star charts. Raw cells normalized as mountain=right digit, water=center digit, base=left digit.",
+        "source_method": "Direct extraction from Wikibooks Period 1-9 Flying Star charts. Raw <sup>A</sup>B<sup>C</sup> cells normalized as mountain=A, water=C, base=B.",
         "position_order": POSITIONS,
         "charts": charts,
     }
@@ -230,7 +230,7 @@ def write_report(period_audits: list[dict[str, Any]], full_audit: dict[str, Any]
         f"Date: {date.today()}",
         "",
         "Source: Wikibooks Flying Star Feng Shui Period 1-9 pages.",
-        "Normalization: raw cell ABC => base=A, water=B, mountain=C; app stores `{mountain, water, base}`.",
+        "Normalization: raw Wikibooks cell `<sup>A</sup>B<sup>C</sup>` => mountain=A, water=C, base=B; app stores `{mountain, water, base}`.",
         "",
         "## Period audits",
         "",
@@ -320,7 +320,7 @@ def main() -> int:
             "version": "1.0-full-wikibooks-extraction",
             "created_date": str(date.today()),
             "total_cases": len(all_cases),
-            "source_method": "Direct extraction from Wikibooks Period 1-9 Flying Star charts. Raw cells normalized as mountain=right digit, water=center digit, base=left digit.",
+            "source_method": "Direct extraction from Wikibooks Period 1-9 Flying Star charts. Raw <sup>A</sup>B<sup>C</sup> cells normalized as mountain=A, water=C, base=B.",
             "position_order": POSITIONS,
             "audit": full_audit,
             "test_cases": all_cases,
