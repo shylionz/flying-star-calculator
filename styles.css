@@ -82,36 +82,44 @@ button:disabled, select:disabled { opacity: 0.55; cursor: not-allowed; }
   color: var(--muted);
 }
 .status strong { color: var(--text); }
+.chart-section { overflow: hidden; }
 .chart-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: clamp(4px, 1.8vw, 10px);
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
 }
 .cell {
+  min-width: 0;
   min-height: 158px;
+  aspect-ratio: 1 / 1;
   background: linear-gradient(145deg, #1f2937, #111827);
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 16px;
+  padding: clamp(7px, 2vw, 16px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 .cell.center { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(251,191,36,0.28); }
 .position { color: var(--muted); font-size: 0.8rem; }
-.palace { font-size: 2.35rem; line-height: 1; font-weight: 900; color: var(--accent); }
-.display-note, .mw-label, .base-label { color: var(--muted); font-size: 0.82rem; }
+.palace { font-size: clamp(1.25rem, 7vw, 2.35rem); line-height: 1; font-weight: 900; color: var(--accent); }
+.display-note, .mw-label, .base-label { color: var(--muted); font-size: clamp(0.56rem, 2.4vw, 0.82rem); line-height: 1.15; }
 .mw-pair {
   display: flex;
-  gap: 18px;
+  gap: clamp(6px, 3vw, 18px);
   align-items: center;
-  font-size: 1.75rem;
+  font-size: clamp(1rem, 5.2vw, 1.75rem);
   font-weight: 900;
-  letter-spacing: 0.12em;
-  margin-top: 10px;
+  letter-spacing: clamp(0.02em, 0.8vw, 0.12em);
+  margin-top: clamp(4px, 1.5vw, 10px);
 }
 .base-star {
-  font-size: 2.15rem;
+  font-size: clamp(1.15rem, 6vw, 2.15rem);
   line-height: 1;
   font-weight: 850;
   letter-spacing: 0.04em;
@@ -151,7 +159,35 @@ pre {
 }
 @media (max-width: 900px) {
   .identity-grid, .overlay-grid, .status { grid-template-columns: 1fr; }
-  .chart-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .app {
+    width: min(100vw - 16px, 420px);
+    margin: 16px auto;
+  }
+  .panel, .status, .trace, .chart-section {
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 12px;
+  }
+  h1 { font-size: clamp(1.65rem, 10vw, 2rem); }
+  .subtitle { font-size: 0.92rem; }
+  select, button {
+    min-height: 44px;
+    padding: 10px;
+  }
+  .chart-grid { gap: 4px; }
+  .cell {
+    min-height: 0;
+    border-radius: 10px;
+  }
+  .display-note { display: none; }
+  .mw-label, .base-label { font-size: clamp(0.5rem, 2.5vw, 0.62rem); }
+}
+@media (max-width: 360px) {
+  .app { width: calc(100vw - 12px); }
+  .panel, .status, .trace, .chart-section { padding: 8px; }
+  .chart-grid { gap: 3px; }
 }
 
 .case-status {
