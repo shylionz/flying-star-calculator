@@ -314,3 +314,49 @@ pre {
     font-size: clamp(0.58rem, 2.7vw, 0.72rem);
   }
 }
+
+/* iPhone fix: keep annual/monthly overlays visible */
+@media (max-width: 520px) {
+  .cell {
+    aspect-ratio: 1 / 1.18;
+    padding: 6px;
+    justify-content: flex-start;
+    gap: 3px;
+    overflow: visible;
+  }
+
+  .palace {
+    font-size: clamp(1rem, 5.5vw, 1.35rem);
+  }
+
+  .mw-pair {
+    font-size: clamp(0.9rem, 4.6vw, 1.2rem);
+    margin-top: 2px;
+    gap: 8px;
+  }
+
+  .base-star {
+    font-size: clamp(0.9rem, 4.6vw, 1.2rem);
+  }
+
+  .mw-label,
+  .base-label {
+    display: none;
+  }
+
+  .temporal-stars {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3px;
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .temporal-star {
+    flex: 1 1 0;
+    justify-content: center;
+    min-width: 0;
+    padding: 3px 4px;
+    font-size: clamp(0.62rem, 3vw, 0.78rem);
+  }
+}
