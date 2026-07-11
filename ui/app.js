@@ -70,10 +70,52 @@ const ORIENTATION_LABELS = {
 };
 
 const COMPASS_RING = ["NW", "N", "NE", "E", "SE", "S", "SW", "W"];
+const LO_SHU_FLIGHT_PATH = ["C", "NW", "W", "NE", "S", "N", "SW", "E", "SE"];
+
+const ANNUAL_CENTER_STARS = {
+  2025: 2,
+  2026: 1,
+};
+
+const MONTHLY_CENTER_STARS = {
+  2025: {
+    1: 3,
+    2: 2,
+    3: 1,
+    4: 9,
+    5: 8,
+    6: 7,
+    7: 6,
+    8: 5,
+    9: 4,
+    10: 3,
+    11: 2,
+    12: 1,
+  },
+  2026: {
+    1: 9,
+    2: 8,
+    3: 7,
+    4: 6,
+    5: 5,
+    6: 4,
+    7: 3,
+    8: 2,
+    9: 1,
+    10: 9,
+    11: 8,
+    12: 7,
+  },
+};
 
 let charts = {};
 let currentChart = null;
 let ringShift = 0;
+let natalChartLocked = false;
+let annualOverlayEnabled = false;
+let monthlyOverlayEnabled = false;
+let annualStars = null;
+let monthlyStars = null;
 const initialParams = new URLSearchParams(window.location.search);
 
 const periodSelect = document.getElementById("periodSelect");
@@ -90,6 +132,75 @@ const generateBtn = document.getElementById("generateBtn");
 const shiftCwBtn = document.getElementById("shiftCwBtn");
 const shiftCcwBtn = document.getElementById("shiftCcwBtn");
 const resetBtn = document.getElementById("resetBtn");
+const lockChartBtn = document.getElementById("lockChartBtn");
+const annualToggle = document.getElementById("annualToggle");
+const annualYearSelect = document.getElementById("annualYearSelect");
+const monthlyToggle = document.getElementById("monthlyToggle");
+const monthlyYearSelect = document.getElementById("monthlyYearSelect");
+const monthSelect = document.getElementById("monthSelect");
+const applyOverlaysBtn = document.getElementById("applyOverlaysBtn");
+const clearOverlaysBtn = document.getElementById("clearOverlaysBtn");
+const temporalStatus = document.getElementById("temporalStatus");
+
+function starAfterSteps(centerStar, steps) {
+  return ((centerStar - 1 + steps) % 9) + 1;
+}
+
+function flyStarsFromCenter(centerStar) {
+  if (!Number.isInteger(centerStar) || centerStar < 1 || centerStar > 9) {
+    throw new Error("centerStar must be an integer from 1 to 9");
+  }
+
+  return Object.fromEntries(
+    LO_SHU_FLIGHT_PATH.map((palace, offset) => [
+      palace,
+      starAfterSteps(centerStar, offset),
+    ])
+  );
+}
+
+function getAnnualStars() {
+  const year = Number(annualYearSelect.value);
+  const centerStar = ANNUAL_CENTER_STARS[year];
+
+  if (!centerStar) {
+    throw new Error(`Unsupported annual year: ${year}`);
+  }
+
+  return flyStarsFromCenter(centerStar);
+}
+
+function getMonthlyStars() {
+  const year = Number(monthlyYearSelect.value);
+  const month = Number(monthSelect.value);
+  const centerStar = MONTHLY_CENTER_STARS[year]?.[month];
+
+  if (!centerStar) {
+    throw new Error(`Unsupported monthly selection: ${year}-${month}`);
+  }
+
+  return flyStarsFromCenter(centerStar);
+}
+
+function composeChartWithOverlays(chart) {
+  if (!chart) return null;
+
+  const composedGrid = Object.fromEntries(
+    Object.entries(chart.grid).map(([palace, natalStars]) => [
+      palace,
+      {
+        ...natalStars,
+        annual: annualOverlayEnabled ? annualStars?.[palace] ?? null : null,
+        monthly: monthlyOverlayEnabled ? monthlyStars?.[palace] ?? null : null,
+      },
+    ])
+  );
+
+  return {
+    ...chart,
+    grid: composedGrid,
+  };
+}
 
 function normalizeShift(steps) {
   return ((steps % 8) + 8) % 8;
@@ -169,6 +280,8 @@ function placeShiftedCell(displayByPalace, chart, sourcePalace, destinationPalac
     mountain: stars.mountain,
     water: stars.water,
     base: stars.base,
+    annual: stars.annual ?? null,
+    monthly: stars.monthly ?? null,
     orientation_mode: "ring_shift",
     ring_shift_steps: rawSteps,
     normalized_ring_shift_steps: normalizedSteps,
@@ -260,7 +373,8 @@ function redraw() {
   setCaseStatus(true, Boolean(currentChart.conflict_review_required));
 
   const orientation = orientationSelect.value;
-  const grid = buildDisplayGrid(currentChart, ringShift, orientation);
+  const composedChart = composeChartWithOverlays(currentChart);
+  const grid = buildDisplayGrid(composedChart, ringShift, orientation);
   const normalized = normalizeShift(ringShift);
   const selectedFacingLabel = FACING_LABELS[currentChart.facing] || currentChart.facing;
 
@@ -279,6 +393,23 @@ function redraw() {
       <div class="mw-label">mountain · water</div>
       <div class="base-star">${cell.base}</div>
       <div class="base-label">base</div>
+
+      ${(cell.annual !== null || cell.monthly !== null) ? `
+        <div class="temporal-stars">
+          ${cell.annual !== null ? `
+            <div class="temporal-star annual-star">
+              <span class="temporal-key">Y</span>
+              <span class="temporal-value">${cell.annual}</span>
+            </div>
+          ` : ""}
+          ${cell.monthly !== null ? `
+            <div class="temporal-star monthly-star">
+              <span class="temporal-key">M</span>
+              <span class="temporal-value">${cell.monthly}</span>
+            </div>
+          ` : ""}
+        </div>
+      ` : ""}
     </article>
   `).join("");
 
@@ -314,6 +445,114 @@ resetBtn.addEventListener("click", () => {
   redraw();
 });
 
+function updateLockState() {
+  periodSelect.disabled = natalChartLocked;
+  facingSelect.disabled = natalChartLocked;
+  generateBtn.disabled = natalChartLocked;
+
+  lockChartBtn.textContent = natalChartLocked
+    ? "Unlock Natal Chart"
+    : "Lock Natal Chart";
+
+  annualToggle.disabled = !natalChartLocked;
+  annualYearSelect.disabled = !natalChartLocked;
+  monthlyToggle.disabled = !natalChartLocked;
+  monthlyYearSelect.disabled = !natalChartLocked;
+  monthSelect.disabled = !natalChartLocked;
+  applyOverlaysBtn.disabled = !natalChartLocked;
+  clearOverlaysBtn.disabled = !natalChartLocked;
+
+  if (!natalChartLocked) {
+    temporalStatus.textContent =
+      "Lock the natal chart before applying annual or monthly overlays.";
+  }
+}
+
+lockChartBtn.addEventListener("click", () => {
+  if (!currentChart) {
+    temporalStatus.textContent = "Generate a natal chart first.";
+    return;
+  }
+
+  natalChartLocked = !natalChartLocked;
+
+  if (!natalChartLocked) {
+    annualOverlayEnabled = false;
+    monthlyOverlayEnabled = false;
+    annualStars = null;
+    monthlyStars = null;
+    annualToggle.checked = false;
+    monthlyToggle.checked = false;
+  }
+
+  updateLockState();
+  redraw();
+});
+
+applyOverlaysBtn.addEventListener("click", () => {
+  if (!natalChartLocked) {
+    temporalStatus.textContent = "Lock the natal chart first.";
+    return;
+  }
+
+  annualOverlayEnabled = annualToggle.checked;
+  monthlyOverlayEnabled = monthlyToggle.checked;
+
+  annualStars = annualOverlayEnabled ? getAnnualStars() : null;
+  monthlyStars = monthlyOverlayEnabled ? getMonthlyStars() : null;
+
+  const statusParts = [];
+
+  if (annualOverlayEnabled) {
+    statusParts.push(`Annual ${annualYearSelect.value}`);
+  }
+
+  if (monthlyOverlayEnabled) {
+    const monthName =
+      monthSelect.options[monthSelect.selectedIndex]?.textContent
+      || monthSelect.value;
+    statusParts.push(`Monthly ${monthName} ${monthlyYearSelect.value}`);
+  }
+
+  temporalStatus.textContent = statusParts.length
+    ? `Applied: ${statusParts.join(" · ")}`
+    : "No temporal overlays selected.";
+
+  redraw();
+});
+
+clearOverlaysBtn.addEventListener("click", () => {
+  annualOverlayEnabled = false;
+  monthlyOverlayEnabled = false;
+  annualStars = null;
+  monthlyStars = null;
+  annualToggle.checked = false;
+  monthlyToggle.checked = false;
+  temporalStatus.textContent = "Annual and monthly overlays cleared.";
+  redraw();
+});
+
+annualYearSelect.addEventListener("change", () => {
+  if (annualOverlayEnabled) {
+    annualStars = getAnnualStars();
+    redraw();
+  }
+});
+
+monthlyYearSelect.addEventListener("change", () => {
+  if (monthlyOverlayEnabled) {
+    monthlyStars = getMonthlyStars();
+    redraw();
+  }
+});
+
+monthSelect.addEventListener("change", () => {
+  if (monthlyOverlayEnabled) {
+    monthlyStars = getMonthlyStars();
+    redraw();
+  }
+});
+
 fetch("data/charts.json")
   .then((response) => response.json())
   .then((data) => {
@@ -322,6 +561,7 @@ fetch("data/charts.json")
     const requestedOrientation = initialParams.get("orientation");
     if (requestedOrientation && ORIENTATION_ROWS[requestedOrientation]) orientationSelect.value = requestedOrientation;
     generateChart();
+    updateLockState();
     initialParams.delete("shift");
     if (initialParams.get("showFacingList") === "1") {
       facingSelect.size = Math.min(24, facingSelect.options.length);

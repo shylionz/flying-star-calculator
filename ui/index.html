@@ -36,15 +36,77 @@
           </select>
         </label>
         <button id="generateBtn" class="primary" type="button">Generate Chart</button>
+        <button id="lockChartBtn" type="button">Lock Natal Chart</button>
       </div>
     </section>
 
     <section class="panel overlay-controls" aria-label="Overlay manipulation controls">
-      <div class="section-label">B. Overlay manipulation</div>
+      <div class="section-label">B. Orientation and ring shift</div>
       <div class="control-grid overlay-grid">
         <button id="shiftCcwBtn" type="button">Shift Counter-Clockwise</button>
         <button id="shiftCwBtn" type="button">Shift Clockwise</button>
         <button id="resetBtn" type="button">Reset Shift</button>
+      </div>
+    </section>
+
+    <section class="panel temporal-controls" aria-label="Annual and monthly Flying Star controls">
+      <div class="section-label">C. Annual and monthly overlays</div>
+
+      <div class="temporal-group">
+        <label class="toggle-label">
+          <input id="annualToggle" type="checkbox" />
+          Show Annual Stars
+        </label>
+
+        <label>
+          Annual Year
+          <select id="annualYearSelect">
+            <option value="2025">2025</option>
+            <option value="2026" selected>2026</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="temporal-group">
+        <label class="toggle-label">
+          <input id="monthlyToggle" type="checkbox" />
+          Show Monthly Stars
+        </label>
+
+        <label>
+          Monthly Year
+          <select id="monthlyYearSelect">
+            <option value="2025">2025</option>
+            <option value="2026" selected>2026</option>
+          </select>
+        </label>
+
+        <label>
+          Month
+          <select id="monthSelect">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7" selected>July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="temporal-actions">
+        <button id="applyOverlaysBtn" type="button">Apply Overlays</button>
+        <button id="clearOverlaysBtn" type="button">Clear Overlays</button>
+      </div>
+
+      <div id="temporalStatus" class="availability-message" aria-live="polite">
+        Lock the natal chart before applying annual or monthly overlays.
       </div>
     </section>
 
@@ -56,7 +118,7 @@
     </section>
 
     <section class="chart-section" aria-label="Chart display">
-      <div class="section-label">C. Chart display</div>
+      <div class="section-label">D. Chart display</div>
       <section id="chartGrid" class="chart-grid" aria-label="3 by 3 chart grid"></section>
     </section>
 
